@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    @charset "UTF-8";
+    .number-spinner {
+    max-width: 85px;
+    line-height: 30px;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+    display: table;
+    }
+    .number-spinner input {
+    height: 30px;
+    max-height: 30px;
+    line-height: 30px;
+    font-size: 0.9em;
+    padding: 0;
+    margin: 0;
+    border: none;
+    position: relative;
+    float: left;
+    width: 100%;
+    text-align: center;
+    }
+    .number-spinner input:focus {
+    outline: none;
+    }
+    .number-spinner .ns-btn {
+    position: relative;
+    font-size: 0;
+    white-space: nowrap;
+    vertical-align: middle;
+    display: table-cell;
+    cursor: pointer;
+    }
+    .number-spinner .ns-btn a {
+    height: 30px;
+    min-height: 30px;
+    width: 18px;
+    padding: 0;
+    max-width: 18px;
+    line-height: 30px;
+    border-radius: 0;
+    border: none;
+    text-align: center;
+    position: relative;
+    color: #fc0303;
+    display: inline-block;
+    vertical-align: middle;
+    text-decoration: none;
+    }
+    .number-spinner .ns-btn .icon-minus:after {
+    content: "−";
+    font-size: 25px;
+    line-height: 28px;
+    font-weight: bold;
+    }
+    .number-spinner .ns-btn .icon-plus:after {
+    content: "+";
+    font-size: 28px;
+    line-height: 25px;
+    font-weight: bold;
+    }
+    </style>
+</head>
+<body>
+    <h3>Number Spinner with Jquery and CSS</h3>
+
+    <div class="number-spinner">
+    <span class="ns-btn">
+            <a data-dir="dwn"><span class="icon-minus"></span></a>
+    </span>
+    <input type="text" class="pl-ns-value" value="1" maxlength=2>
+    <span class="ns-btn">
+            <a data-dir="up"><span class="icon-plus"></span></a>
+    </span>
+    </div>
+
+    <div class="number-spinner">
+    <span class="ns-btn">
+            <a data-dir="dwn"><span class="icon-minus"></span></a>
+    </span>
+    <input type="text" class="pl-ns-value" value="1" maxlength=2>
+    <span class="ns-btn">
+            <a data-dir="up"><span class="icon-plus"></span></a>
+    </span>
+    </div>
+</body>
+</html>
+<script
+  src="https://code.jquery.com/jquery-3.6.0.js"
+  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+  crossorigin="anonymous"></script>
+<script>
+    var numberSpinner = (function() {
+    $('.number-spinner>.ns-btn>a').click(function() {
+        var btn = $(this),
+        oldValue = btn.closest('.number-spinner').find('input').val().trim(),
+        newVal = 0;
+
+        if (btn.attr('data-dir') === 'up') {
+        newVal = parseInt(oldValue) + 1;
+        if(newVal >= 11)
+        {
+            alert('Maior que Dez');
+            return false;
+        }
+        } else {
+        if (oldValue > 1) {
+            newVal = parseInt(oldValue) - 1;
+        } else {
+            newVal = 0;
+        }
+        }
+        btn.closest('.number-spinner').find('input').val(newVal);
+    });
+    $('.number-spinner>input').keypress(function(evt) {
+        evt = (evt) ? evt : window.event;
+        var charCode = (evt.which) ? evt.which : evt.keyCode;
+        if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+        return false;
+        }
+        return true;
+    });
+    })();
+</script>
