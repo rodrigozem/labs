@@ -8,7 +8,7 @@
     <style>
     @charset "UTF-8";
     .number-spinner {
-    max-width: 85px;
+    max-width: 65px;
     line-height: 30px;
     padding: 0;
     margin: 0;
@@ -28,6 +28,7 @@
     float: left;
     width: 100%;
     text-align: center;
+    pointer-events: none;
     }
     .number-spinner input:focus {
     outline: none;
@@ -38,7 +39,7 @@
     white-space: nowrap;
     vertical-align: middle;
     display: table-cell;
-    cursor: pointer;
+    cursor: pointer;    
     }
     .number-spinner .ns-btn a {
     height: 30px;
@@ -74,23 +75,23 @@
     <h3>Number Spinner with Jquery and CSS</h3>
 
     <div class="number-spinner">
-    <span class="ns-btn">
+        <span class="ns-btn">
             <a data-dir="dwn"><span class="icon-minus"></span></a>
-    </span>
-    <input type="text" class="pl-ns-value" value="1" maxlength=2>
-    <span class="ns-btn">
+        </span>
+        <input type="text" class="pl-ns-value" value="0" maxlength="2">
+        <span class="ns-btn">
             <a data-dir="up"><span class="icon-plus"></span></a>
-    </span>
+        </span>
     </div>
 
     <div class="number-spinner">
-    <span class="ns-btn">
+        <span class="ns-btn">
             <a data-dir="dwn"><span class="icon-minus"></span></a>
-    </span>
-    <input type="text" class="pl-ns-value" value="1" maxlength=2>
-    <span class="ns-btn">
+        </span>
+        <input type="text" class="pl-ns-value" value="0" maxlength="2">
+        <span class="ns-btn">
             <a data-dir="up"><span class="icon-plus"></span></a>
-    </span>
+        </span>
     </div>
 </body>
 </html>
