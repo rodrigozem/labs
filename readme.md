@@ -1,3 +1,3 @@
 # Labs
 
-*Jquery Number Spinner* [Duck Duck Go](https://rodrigozem.github.io/labs/spinner.html "Jquery Number Spinner").
+*Jquery Number Spinner* [&#128279;](https://rodrigozem.github.io/labs/spinner.html "Jquery Number Spinner").
