@@ -1,5 +1,5 @@
 <?php
-function get_minutes($hr)
+function get_minutes_from_time($hr)
 {
     $time = explode(":",$hr);
     $t1 = intval($time[0]) * 60;
